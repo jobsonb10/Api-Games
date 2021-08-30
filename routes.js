@@ -86,7 +86,7 @@ routes.delete("/jogos/:id", async (req, res) => {
     return;
   }
 
-  const jogo = JogoSchema.findById(id);
+  const jogo = await JogoSchema.findById(id);
 
   if (!jogo) {
     res.status(404).send({ error: "Jogo não encontrado" });
